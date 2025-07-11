@@ -1,0 +1,2097 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="Prince Developer - Professional Full Stack Developer specializing in web and mobile applications. 5+ years experience in JavaScript, React, Node.js, and more.">
+    <meta name="keywords" content="Full Stack Developer, Web Developer, Mobile App Developer, JavaScript Developer, React Developer, Node.js Developer, Portfolio">
+    <meta name="author" content="Prince Developer">
+    <meta property="og:title" content="Prince Developer | Full Stack Development Services">
+    <meta property="og:description" content="Professional Full Stack Developer with 5+ years experience building web and mobile applications.">
+    <meta property="og:type" content="website">
+    <meta property="og:url" content="https://Princedeveloper.com">
+    <meta property="og:image" content="https://Princedeveloper.com/images/profile.jpg">
+    <meta name="twitter:card" content="summary_large_image">
+    
+    <title>Prince Developer | Full Stack Web & Mobile App Developer</title>
+    <link rel="canonical" href="https://Princedeveloper.com">
+    
+    <!-- Preload critical resources -->
+    <link rel="preload" href="https://fonts.googleapis.com/css2?family=Fira+Code:wght@300;400;500;600;700&family=Poppins:wght@300;400;500;600;700&display=swap" as="style">
+    <link rel="preload" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css" as="style">
+    
+    <style>
+        /* CSS Variables for easy theming */
+        :root {
+            --primary: #4CAF50;
+            --primary-dark: #388E3C;
+            --primary-light: #C8E6C9;
+            --secondary: #f8f9fa;
+            --accent: #FF5722;
+            --text-light: #495057;
+            --text-dark: #212121;
+            --text-white: #212529;
+            --bg-dark: #f8f9fa;
+            --glass-bg: rgba(248, 249, 250, 0.9);
+            --glass-border: rgba(76, 175, 80, 0.2);
+            --shadow-sm: 0 1px 3px rgba(0,0,0,0.12), 0 1px 2px rgba(0,0,0,0.24);
+            --shadow-md: 0 4px 6px rgba(0,0,0,0.1), 0 1px 3px rgba(0,0,0,0.08);
+            --shadow-lg: 0 10px 20px rgba(0,0,0,0.1), 0 6px 6px rgba(0,0,0,0.1);
+            --shadow-xl: 0 15px 25px rgba(0,0,0,0.15), 0 5px 10px rgba(0,0,0,0.05);
+            --border-radius-sm: 4px;
+            --border-radius-md: 8px;
+            --border-radius-lg: 12px;
+            --border-radius-xl: 16px;
+            --max-width: 1200px;
+            --nav-height: 80px;
+        }
+
+        /* Dark mode variables */
+        [data-theme="dark"] {
+            --secondary: #07152a;
+            --text-light: #f0f0f0;
+            --text-white: #ffffff;
+            --bg-dark: #0a192f;
+            --glass-bg: rgba(10, 25, 47, 0.9);
+            --glass-border: rgba(76, 175, 80, 0.3);
+        }
+
+        /* Base Styles */
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        html {
+            scroll-behavior: smooth;
+        }
+
+        body {
+            font-family: 'Poppins', sans-serif;
+            line-height: 1.6;
+            color: var(--text-light);
+            background-color: var(--bg-dark);
+            overflow-x: hidden;
+            transition: background-color 0.5s ease, color 0.5s ease;
+        }
+
+        /* Fallback gradient if video doesn't load */
+        body::before {
+            content: '';
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: linear-gradient(135deg, var(--bg-dark) 0%, var(--secondary) 100%);
+            z-index: -2;
+            transition: all 0.5s ease;
+        }
+
+        h1, h2, h3, h4, h5, h6 {
+            font-weight: 600;
+            line-height: 1.2;
+            margin-bottom: 1rem;
+            color: var(--text-white);
+            transition: color 0.5s ease;
+        }
+
+        p {
+            margin-bottom: 1.5rem;
+            transition: color 0.5s ease;
+        }
+
+        a {
+            color: var(--primary);
+            text-decoration: none;
+            transition: all 0.3s ease;
+        }
+
+        a:hover {
+            color: var(--primary-light);
+        }
+
+        img {
+            max-width: 100%;
+            height: auto;
+            display: block;
+        }
+
+        ul, ol {
+            list-style: none;
+        }
+
+        button {
+            cursor: pointer;
+            border: none;
+            background: none;
+            font-family: inherit;
+        }
+
+        /* Utility Classes */
+        .container {
+            width: 100%;
+            max-width: var(--max-width);
+            margin: 0 auto;
+            padding: 0 1.5rem;
+        }
+
+        .section {
+            padding: 6rem 0;
+        }
+
+        .section-title {
+            text-align: center;
+            font-size: clamp(2rem, 5vw, 2.625rem);
+            margin-bottom: 4rem;
+            position: relative;
+        }
+
+        .section-title::after {
+            content: '';
+            display: block;
+            width: 80px;
+            height: 4px;
+            background: var(--primary);
+            margin: 1rem auto 0;
+            border-radius: 2px;
+            transition: background 0.5s ease;
+        }
+
+        .text-center {
+            text-align: center;
+        }
+
+        .text-primary {
+            color: var(--primary);
+        }
+
+        .btn {
+            display: inline-block;
+            padding: 0.75rem 1.5rem;
+            border-radius: var(--border-radius-md);
+            font-weight: 500;
+            text-align: center;
+            transition: all 0.3s ease;
+            border: 2px solid transparent;
+        }
+
+        .btn-primary {
+            background-color: var(--primary);
+            color: var(--text-white);
+        }
+
+        .btn-primary:hover {
+            background-color: var(--primary-dark);
+            transform: translateY(-2px);
+            box-shadow: var(--shadow-md);
+        }
+
+        .btn-outline {
+            background-color: transparent;
+            color: var(--primary);
+            border-color: var(--primary);
+        }
+
+        .btn-outline:hover {
+            background-color: var(--primary);
+            color: var(--text-white);
+            transform: translateY(-2px);
+            box-shadow: var(--shadow-md);
+        }
+
+        .btn-group {
+            display: flex;
+            gap: 1rem;
+            flex-wrap: wrap;
+        }
+
+        /* Glass Morphism Effect */
+        .glass-card {
+            background: var(--glass-bg);
+            backdrop-filter: blur(10px);
+            -webkit-backdrop-filter: blur(10px);
+            border-radius: var(--border-radius-lg);
+            border: 1px solid var(--glass-border);
+            box-shadow: var(--shadow-xl);
+            transition: all 0.5s ease;
+            overflow: hidden;
+        }
+
+        .glass-card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 12px 40px 0 rgba(0, 255, 0, 0.2);
+        }
+
+        /* Navigation */
+        nav {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: var(--nav-height);
+            z-index: 1000;
+            transition: all 0.5s ease;
+            padding: 1rem 0;
+        }
+
+        nav.scrolled {
+            background: rgba(248, 249, 250, 0.95);
+            box-shadow: var(--shadow-md);
+            backdrop-filter: blur(10px);
+            -webkit-backdrop-filter: blur(10px);
+            padding: 0.5rem 0;
+        }
+
+        [data-theme="dark"] nav.scrolled {
+            background: rgba(10, 25, 47, 0.95);
+        }
+
+        .nav-container {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            height: 100%;
+        }
+
+        .logo {
+            font-size: 1.75rem;
+            font-weight: 700;
+            color: var(--text-white);
+            display: flex;
+            align-items: center;
+            gap: 0.5rem;
+            transition: color 0.5s ease;
+        }
+
+        .logo span {
+            color: var(--primary);
+        }
+
+        .nav-links {
+            display: flex;
+            align-items: center;
+            gap: 2rem;
+        }
+
+        .nav-links a {
+            color: var(--text-light);
+            font-weight: 500;
+            position: relative;
+            padding: 0.5rem 0;
+            transition: color 0.5s ease;
+        }
+
+        .nav-links a::after {
+            content: '';
+            position: absolute;
+            bottom: 0;
+            left: 0;
+            width: 0;
+            height: 2px;
+            background: var(--primary);
+            transition: all 0.3s ease;
+        }
+
+        .nav-links a:hover::after {
+            width: 100%;
+        }
+
+        .nav-links a.active {
+            color: var(--primary);
+        }
+
+        .theme-toggle {
+            background: none;
+            border: none;
+            color: var(--text-light);
+            font-size: 1.25rem;
+            cursor: pointer;
+            transition: all 0.5s ease;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            width: 40px;
+            height: 40px;
+            border-radius: 50%;
+        }
+
+        .theme-toggle:hover {
+            background: rgba(76, 175, 80, 0.1);
+            color: var(--primary);
+            transform: rotate(30deg);
+        }
+
+        .menu-toggle {
+            display: none;
+            background: none;
+            border: none;
+            color: var(--text-white);
+            font-size: 1.5rem;
+            cursor: pointer;
+            z-index: 1001;
+            transition: color 0.5s ease;
+        }
+
+        /* Hero Section */
+        .hero {
+            min-height: 100vh;
+            display: flex;
+            align-items: center;
+            padding-top: var(--nav-height);
+            position: relative;
+            overflow: hidden;
+        }
+
+        .hero-content {
+            display: grid;
+            grid-template-columns: 1fr;
+            gap: 3rem;
+            align-items: center;
+        }
+
+        .hero-text {
+            order: 2;
+        }
+
+        .hero-image {
+            order: 1;
+            display: flex;
+            justify-content: center;
+            position: relative;
+        }
+
+        .hero-title {
+            font-size: clamp(2rem, 5vw, 3rem);
+            margin-bottom: 1.5rem;
+            line-height: 1.2;
+        }
+
+        .hero-subtitle {
+            font-size: clamp(1rem, 3vw, 1.25rem);
+            color: var(--primary);
+            margin-bottom: 1rem;
+            font-weight: 500;
+            display: inline-block;
+        }
+
+        .hero-description {
+            font-size: clamp(1rem, 2vw, 1.125rem);
+            line-height: 1.6;
+            color: var(--text-light);
+            margin-bottom: 2rem;
+            max-width: 600px;
+        }
+
+        .hero-badge {
+            display: inline-block;
+            background: rgba(76, 175, 80, 0.2);
+            color: var(--primary);
+            padding: 0.5rem 1rem;
+            border-radius: 2rem;
+            font-size: 0.875rem;
+            font-weight: 500;
+            transition: all 0.5s ease;
+        }
+
+        .profile-photo {
+            width: 100%;
+            max-width: 350px;
+            height: auto;
+            border-radius: var(--border-radius-lg);
+            object-fit: cover;
+            border: 3px solid var(--primary);
+            box-shadow: 0 0 30px rgba(76, 175, 80, 0.3);
+            transition: all 0.5s ease;
+            position: relative;
+            z-index: 1;
+        }
+
+        .profile-photo:hover {
+            transform: scale(1.03);
+            box-shadow: 0 0 40px rgba(76, 175, 80, 0.4);
+        }
+
+        /* Services Section */
+        .services-section {
+            background: linear-gradient(to bottom, rgba(248, 249, 250, 0.9), rgba(248, 249, 250, 0.95));
+            transition: all 0.5s ease;
+        }
+
+        [data-theme="dark"] .services-section {
+            background: linear-gradient(to bottom, rgba(10, 25, 47, 0.9), rgba(10, 25, 47, 0.95));
+        }
+
+        .services-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 2rem;
+        }
+
+        .service-card {
+            padding: 2rem;
+            text-align: center;
+            height: 100%;
+        }
+
+        .service-icon {
+            font-size: 3rem;
+            color: var(--primary);
+            margin-bottom: 1.5rem;
+            transition: all 0.5s ease;
+        }
+
+        .service-card:hover .service-icon {
+            transform: scale(1.1) rotate(10deg);
+            color: var(--primary-dark);
+        }
+
+        .service-title {
+            font-size: 1.25rem;
+            margin-bottom: 1rem;
+        }
+
+        .service-description {
+            color: var(--text-light);
+            font-size: 0.9375rem;
+        }
+
+        /* Portfolio Section */
+        .portfolio-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 2rem;
+        }
+
+        .portfolio-item {
+            overflow: hidden;
+            position: relative;
+        }
+
+        .portfolio-image-container {
+            position: relative;
+            overflow: hidden;
+            border-radius: var(--border-radius-md);
+            height: 220px;
+        }
+
+        .portfolio-image {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            transition: transform 0.5s ease;
+        }
+
+        .portfolio-item:hover .portfolio-image {
+            transform: scale(1.05);
+        }
+
+        .portfolio-overlay {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: rgba(248, 249, 250, 0.8);
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+            opacity: 0;
+            transition: all 0.5s ease;
+        }
+
+        [data-theme="dark"] .portfolio-overlay {
+            background: rgba(10, 25, 47, 0.8);
+        }
+
+        .portfolio-item:hover .portfolio-overlay {
+            opacity: 1;
+        }
+
+        .portfolio-info {
+            padding: 1.5rem;
+        }
+
+        .portfolio-title {
+            font-size: 1.25rem;
+            margin-bottom: 0.5rem;
+        }
+
+        .portfolio-description {
+            color: var(--text-light);
+            font-size: 0.9375rem;
+            margin-bottom: 1rem;
+        }
+
+        .portfolio-tags {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 0.5rem;
+            margin-bottom: 1rem;
+        }
+
+        .tag {
+            background: rgba(76, 175, 80, 0.2);
+            color: var(--primary);
+            padding: 0.25rem 0.75rem;
+            border-radius: 2rem;
+            font-size: 0.75rem;
+            font-weight: 500;
+            transition: all 0.5s ease;
+        }
+
+        /* About Section */
+        .about-section {
+            background: linear-gradient(to bottom, rgba(248, 249, 250, 0.95), rgba(248, 249, 250, 0.9));
+            transition: all 0.5s ease;
+        }
+
+        [data-theme="dark"] .about-section {
+            background: linear-gradient(to bottom, rgba(10, 25, 47, 0.95), rgba(10, 25, 47, 0.9));
+        }
+
+        .about-container {
+            display: grid;
+            grid-template-columns: 1fr;
+            gap: 3rem;
+        }
+
+        .about-text p {
+            color: var(--text-light);
+            line-height: 1.6;
+            margin-bottom: 1.5rem;
+        }
+
+        .about-stats {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(120px, 1fr));
+            gap: 1.5rem;
+            margin-bottom: 2rem;
+        }
+
+        .stat-item {
+            text-align: center;
+            padding: 1rem;
+            background: rgba(248, 249, 250, 0.5);
+            border-radius: var(--border-radius-md);
+            border: 1px solid var(--glass-border);
+            transition: all 0.5s ease;
+        }
+
+        [data-theme="dark"] .stat-item {
+            background: rgba(10, 25, 47, 0.5);
+        }
+
+        .stat-number {
+            font-size: 2rem;
+            color: var(--primary);
+            font-weight: 700;
+            margin-bottom: 0.25rem;
+        }
+
+        .stat-label {
+            color: var(--text-light);
+            font-size: 0.875rem;
+        }
+
+        /* Terminal Animation */
+        .terminal {
+            background-color: rgba(233, 236, 239, 0.8);
+            border-radius: var(--border-radius-md);
+            padding: 1.5rem;
+            font-family: 'Fira Code', monospace;
+            position: relative;
+            overflow: hidden;
+            height: 100%;
+            transition: all 0.5s ease;
+        }
+
+        [data-theme="dark"] .terminal {
+            background-color: rgba(0, 0, 0, 0.8);
+        }
+
+        .terminal::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: linear-gradient(transparent 95%, rgba(76, 175, 80, 0.05) 95%);
+            background-size: 100% 24px;
+            pointer-events: none;
+        }
+
+        .terminal-header {
+            display: flex;
+            margin-bottom: 1rem;
+        }
+
+        .terminal-btn {
+            width: 14px;
+            height: 14px;
+            border-radius: 50%;
+            margin-right: 8px;
+        }
+
+        .terminal-btn.red { background: #ff5f56; }
+        .terminal-btn.yellow { background: #ffbd2e; }
+        .terminal-btn.green { background: #27c93f; }
+
+        .terminal-content {
+            line-height: 1.6;
+            font-size: 0.875rem;
+        }
+
+        .terminal-prompt {
+            color: #569cd6;
+        }
+
+        .terminal-command {
+            color: var(--text-white);
+        }
+
+        .terminal-cursor {
+            animation: blink 1s infinite;
+        }
+
+        @keyframes blink {
+            0%, 100% { opacity: 1; }
+            50% { opacity: 0; }
+        }
+
+        /* Skills Section */
+        .skills-container {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 2rem;
+        }
+
+        .skill-category {
+            background: var(--glass-bg);
+            border-radius: var(--border-radius-md);
+            padding: 1.5rem;
+            border: 1px solid var(--glass-border);
+            transition: all 0.5s ease;
+        }
+
+        .skill-category-title {
+            font-size: 1.25rem;
+            margin-bottom: 1.5rem;
+            color: var(--primary);
+            display: flex;
+            align-items: center;
+            gap: 0.5rem;
+        }
+
+        .skill-item {
+            margin-bottom: 1.25rem;
+        }
+
+        .skill-info {
+            display: flex;
+            justify-content: space-between;
+            margin-bottom: 0.5rem;
+        }
+
+        .skill-name {
+            font-size: 0.9375rem;
+        }
+
+        .skill-percent {
+            font-size: 0.875rem;
+            color: var(--primary);
+        }
+
+        .skill-bar {
+            height: 8px;
+            background: rgba(248, 249, 250, 0.5);
+            border-radius: 4px;
+            overflow: hidden;
+            transition: all 0.5s ease;
+        }
+
+        [data-theme="dark"] .skill-bar {
+            background: rgba(10, 25, 47, 0.5);
+        }
+
+        .skill-progress {
+            height: 100%;
+            background: var(--primary);
+            border-radius: 4px;
+            transition: width 1s ease-in-out, background 0.5s ease;
+        }
+
+        /* Contact Section */
+        .contact-container {
+            display: grid;
+            grid-template-columns: 1fr;
+            gap: 3rem;
+        }
+
+        .contact-info-card {
+            padding: 2rem;
+            height: 100%;
+        }
+
+        .contact-info-item {
+            display: flex;
+            align-items: flex-start;
+            margin-bottom: 1.5rem;
+        }
+
+        .contact-icon {
+            font-size: 1.5rem;
+            color: var(--primary);
+            margin-right: 1rem;
+            min-width: 30px;
+            transition: color 0.5s ease;
+        }
+
+        .contact-label {
+            color: var(--text-light);
+            font-size: 0.875rem;
+            margin-bottom: 0.25rem;
+        }
+
+        .contact-value {
+            color: var(--text-white);
+            font-size: 1rem;
+        }
+
+        .social-links {
+            display: flex;
+            justify-content: center;
+            gap: 1.5rem;
+            margin-top: 2rem;
+        }
+
+        .social-link {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            width: 40px;
+            height: 40px;
+            border-radius: 50%;
+            background: rgba(76, 175, 80, 0.1);
+            color: var(--primary);
+            font-size: 1.25rem;
+            transition: all 0.5s ease;
+        }
+
+        .social-link:hover {
+            background: var(--primary);
+            color: var(--text-white);
+            transform: translateY(-3px) rotate(10deg);
+        }
+
+        /* Testimonials Section */
+        .testimonials-section {
+            background: linear-gradient(to bottom, rgba(248, 249, 250, 0.9), rgba(248, 249, 250, 0.95));
+            transition: all 0.5s ease;
+        }
+
+        [data-theme="dark"] .testimonials-section {
+            background: linear-gradient(to bottom, rgba(10, 25, 47, 0.9), rgba(10, 25, 47, 0.95));
+        }
+
+        .testimonials-container {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 2rem;
+        }
+
+        .testimonial-card {
+            padding: 2rem;
+            position: relative;
+        }
+
+        .testimonial-quote {
+            position: absolute;
+            top: 1.5rem;
+            left: 1.5rem;
+            font-size: 3rem;
+            color: rgba(76, 175, 80, 0.1);
+            line-height: 1;
+            transition: color 0.5s ease;
+        }
+
+        .testimonial-content {
+            margin-bottom: 1.5rem;
+            font-style: italic;
+            color: var(--text-light);
+            position: relative;
+            z-index: 1;
+        }
+
+        .testimonial-author {
+            display: flex;
+            align-items: center;
+            gap: 1rem;
+        }
+
+        .testimonial-avatar {
+            width: 50px;
+            height: 50px;
+            border-radius: 50%;
+            object-fit: cover;
+            border: 2px solid var(--primary);
+            transition: all 0.5s ease;
+        }
+
+        .testimonial-author-info h4 {
+            margin-bottom: 0.25rem;
+            font-size: 1rem;
+        }
+
+        .testimonial-author-info p {
+            color: var(--primary);
+            font-size: 0.875rem;
+            margin-bottom: 0;
+        }
+
+        /* Footer */
+        footer {
+            padding: 4rem 0 2rem;
+            background: rgba(248, 249, 250, 0.95);
+            position: relative;
+            transition: all 0.5s ease;
+        }
+
+        [data-theme="dark"] footer {
+            background: rgba(10, 25, 47, 0.95);
+        }
+
+        .footer-container {
+            display: grid;
+            grid-template-columns: 1fr;
+            gap: 3rem;
+        }
+
+        .footer-about {
+            max-width: 400px;
+        }
+
+        .footer-logo {
+            font-size: 1.75rem;
+            margin-bottom: 1rem;
+            display: flex;
+            align-items: center;
+            gap: 0.5rem;
+        }
+
+        .footer-logo span {
+            color: var(--primary);
+        }
+
+        .footer-about p {
+            color: var(--text-light);
+            font-size: 0.9375rem;
+        }
+
+        .footer-links-container {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(150px, 1fr));
+            gap: 2rem;
+        }
+
+        .footer-links-title {
+            font-size: 1.125rem;
+            margin-bottom: 1.5rem;
+            color: var(--text-white);
+        }
+
+        .footer-links {
+            display: flex;
+            flex-direction: column;
+            gap: 0.75rem;
+        }
+
+        .footer-link {
+            color: var(--text-light);
+            font-size: 0.9375rem;
+            transition: all 0.5s ease;
+        }
+
+        .footer-link:hover {
+            color: var(--primary);
+            transform: translateX(5px);
+        }
+
+        .footer-bottom {
+            margin-top: 3rem;
+            padding-top: 2rem;
+            border-top: 1px solid rgba(0, 0, 0, 0.1);
+            transition: all 0.5s ease;
+        }
+
+        [data-theme="dark"] .footer-bottom {
+            border-top: 1px solid rgba(255, 255, 255, 0.1);
+        }
+
+        .copyright {
+            text-align: center;
+            color: var(--text-light);
+            font-size: 0.875rem;
+        }
+
+        /* WhatsApp Button */
+        .whatsapp-btn {
+            position: fixed;
+            bottom: 2rem;
+            left: 2rem;
+            width: 60px;
+            height: 60px;
+            border-radius: 50%;
+            background: #25D366;
+            color: white;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 1.75rem;
+            box-shadow: var(--shadow-lg);
+            z-index: 999;
+            transition: all 0.5s ease;
+        }
+
+        .whatsapp-btn:hover {
+            transform: scale(1.1) rotate(10deg);
+            box-shadow: 0 5px 15px rgba(37, 211, 102, 0.4);
+        }
+
+        /* Back to Top Button */
+        .back-to-top {
+            position: fixed;
+            bottom: 2rem;
+            right: 2rem;
+            width: 50px;
+            height: 50px;
+            border-radius: 50%;
+            background: var(--primary);
+            color: var(--text-white);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 1.25rem;
+            box-shadow: var(--shadow-lg);
+            opacity: 0;
+            visibility: hidden;
+            transition: all 0.5s ease;
+            z-index: 999;
+        }
+
+        .back-to-top.active {
+            opacity: 1;
+            visibility: visible;
+        }
+
+        .back-to-top:hover {
+            background: var(--primary-dark);
+            transform: translateY(-3px) rotate(10deg);
+        }
+
+        /* Theme switch animation */
+        .theme-switch-wrapper {
+            display: flex;
+            align-items: center;
+        }
+
+        .theme-switch {
+            display: inline-block;
+            height: 24px;
+            position: relative;
+            width: 50px;
+        }
+
+        .theme-switch input {
+            display: none;
+        }
+
+        .slider {
+            background-color: #ccc;
+            bottom: 0;
+            cursor: pointer;
+            left: 0;
+            position: absolute;
+            right: 0;
+            top: 0;
+            transition: .4s;
+        }
+
+        .slider:before {
+            background-color: #fff;
+            bottom: 4px;
+            content: "";
+            height: 16px;
+            left: 4px;
+            position: absolute;
+            transition: .4s;
+            width: 16px;
+        }
+
+        input:checked + .slider {
+            background-color: var(--primary);
+        }
+
+        input:checked + .slider:before {
+            transform: translateX(26px);
+        }
+
+        .slider.round {
+            border-radius: 34px;
+        }
+
+        .slider.round:before {
+            border-radius: 50%;
+        }
+
+        /* Animations */
+        @keyframes fadeIn {
+            from { opacity: 0; transform: translateY(20px); }
+            to { opacity: 1; transform: translateY(0); }
+        }
+
+        .fade-in {
+            animation: fadeIn 0.6s ease forwards;
+        }
+
+        .delay-1 { animation-delay: 0.2s; }
+        .delay-2 { animation-delay: 0.4s; }
+        .delay-3 { animation-delay: 0.6s; }
+        .delay-4 { animation-delay: 0.8s; }
+
+        /* Pulse animation for dark mode button */
+        @keyframes pulse {
+            0% { transform: scale(1); }
+            50% { transform: scale(1.1); }
+            100% { transform: scale(1); }
+        }
+
+        .pulse {
+            animation: pulse 2s infinite;
+        }
+
+        /* Responsive Styles */
+        @media (min-width: 768px) {
+            .hero-content {
+                grid-template-columns: 1fr 1fr;
+            }
+            
+            .hero-text {
+                order: 1;
+            }
+            
+            .hero-image {
+                order: 2;
+            }
+            
+            .about-container {
+                grid-template-columns: 1fr 1fr;
+            }
+            
+            .contact-container {
+                grid-template-columns: 1fr 1fr;
+            }
+            
+            .footer-container {
+                grid-template-columns: 1fr 2fr;
+            }
+        }
+
+        @media (min-width: 992px) {
+            .section {
+                padding: 8rem 0;
+            }
+            
+            .profile-photo {
+                max-width: 420px;
+            }
+        }
+
+        @media (max-width: 767px) {
+            .menu-toggle {
+                display: block;
+            }
+            
+            .nav-links {
+                position: fixed;
+                top: 0;
+                right: -100%;
+                width: 80%;
+                max-width: 300px;
+                height: 100vh;
+                background: rgba(248, 249, 250, 0.98);
+                flex-direction: column;
+                align-items: center;
+                justify-content: center;
+                gap: 2rem;
+                transition: all 0.5s ease;
+                backdrop-filter: blur(10px);
+                -webkit-backdrop-filter: blur(10px);
+            }
+
+            [data-theme="dark"] .nav-links {
+                background: rgba(10, 25, 47, 0.98);
+            }
+            
+            .nav-links.active {
+                right: 0;
+            }
+            
+            .hero {
+                padding-top: calc(var(--nav-height) + 1rem);
+            }
+            
+            .btn-group {
+                justify-content: center;
+            }
+            
+            .whatsapp-btn {
+                width: 50px;
+                height: 50px;
+                font-size: 1.5rem;
+                bottom: 1.5rem;
+                left: 1.5rem;
+            }
+        }
+
+        @media (max-width: 480px) {
+            .section {
+                padding: 4rem 0;
+            }
+            
+            .section-title {
+                margin-bottom: 3rem;
+            }
+            
+            .hero-title {
+                font-size: 2rem;
+            }
+            
+            .hero-description {
+                font-size: 1rem;
+            }
+            
+            .btn {
+                padding: 0.625rem 1.25rem;
+                font-size: 0.875rem;
+            }
+        }
+    </style>
+    
+    <!-- Fonts -->
+    <link href="https://fonts.googleapis.com/css2?family=Fira+Code:wght@300;400;500;600;700&family=Poppins:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    <!-- Icons -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+    <!-- Favicon -->
+    <link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png">
+    <link rel="icon" type="image/png" sizes="32x32" href="/favicon-32x32.png">
+    <link rel="icon" type="image/png" sizes="16x16" href="/favicon-16x16.png">
+    <link rel="manifest" href="/site.webmanifest">
+</head>
+<body>
+    <!-- WhatsApp Button -->
+    <a href="https://wa.me/8273847174?text=Hi%20Prince,%20I%20saw%20your%20portfolio%20and%20wanted%20to%20connect" class="whatsapp-btn" target="_blank" rel="noopener noreferrer" aria-label="Contact on WhatsApp">
+        <i class="fab fa-whatsapp"></i>
+    </a>
+    
+    <!-- Navigation -->
+    <nav id="navbar">
+        <div class="container nav-container">
+            <a href="#home" class="logo">
+                <span class="text-primary">&lt;</span>PrinceCoder<span class="text-primary">/&gt;</span>
+            </a>
+            <div class="nav-links" id="navLinks">
+                <a href="#home" class="active">Home</a>
+                <a href="#services">Services</a>
+                <a href="#portfolio">Portfolio</a>
+                <a href="#about">About</a>
+                <a href="#skills">Skills</a>
+                <a href="#contact">Contact</a>
+                <button class="theme-toggle" id="themeToggle" aria-label="Toggle theme">
+                    <i class="fas fa-moon"></i>
+                </button>
+                <a href="#contact" class="btn btn-primary">Hire Me</a>
+            </div>
+            <button class="menu-toggle" id="menuToggle" aria-label="Toggle navigation">
+                <i class="fas fa-bars"></i>
+            </button>
+        </div>
+    </nav>
+    
+    <!-- Hero Section -->
+    <section id="home" class="hero">
+        <div class="container">
+            <div class="hero-content">
+                <div class="hero-text fade-in">
+                    <span class="hero-badge">Full Stack Developer</span>
+                    <h1 class="hero-title">Hi, I'm <span class="text-primary">Prince Developer</span></h1>
+                    <h2 class="hero-subtitle">Building digital experiences that matter</h2>
+                    <p class="hero-description">
+                        I specialize in creating high-performance web and mobile applications with clean, efficient code. 
+                        With over 5 years of experience, I help businesses transform their ideas into scalable digital solutions.
+                    </p>
+                    <div class="btn-group">
+                        <a href="#portfolio" class="btn btn-primary">View My Work</a>
+                        <a href="#contact" class="btn btn-outline">Contact Me</a>
+                    </div>
+                </div>
+                <div class="hero-image fade-in delay-1">
+                    <img src="My img.jpg" alt="Prince Developer - Full Stack Developer" class="profile-photo">
+                </div>
+            </div>
+        </div>
+    </section>
+    
+    <!-- Services Section - Improved Design -->
+    <section id="services" class="section services-section">
+        <div class="container">
+            <h2 class="section-title">My <span class="text-primary">Services</span></h2>
+            <p class="text-center" style="max-width: 700px; margin: 0 auto 3rem;">I offer a comprehensive range of development services to bring your digital ideas to life with cutting-edge technology and innovative solutions.</p>
+            
+            <div class="services-grid">
+                <!-- Service 1 -->
+                <div class="glass-card service-card fade-in">
+                    <div class="service-icon">
+                        <i class="fas fa-code"></i>
+                    </div>
+                    <h3 class="service-title">Frontend Development</h3>
+                    <p class="service-description">
+                        Responsive, accessible websites built with modern frameworks like React, Vue.js, Angular, along with Tailwind CSS, Bootstrap, and jQuery — delivering exceptional user experiences across all devices.
+                    </p>
+                    <ul style="text-align: left; margin-top: 1rem; padding-left: 1.5rem;">
+                        <li style="margin-bottom: 0.5rem; position: relative; padding-left: 1.5rem;">
+                            <i class="fas fa-check-circle" style="color: var(--primary); position: absolute; left: 0;"></i>
+                            React & Vue.js Development
+                        </li>
+                        <li style="margin-bottom: 0.5rem; position: relative; padding-left: 1.5rem;">
+                            <i class="fas fa-check-circle" style="color: var(--primary); position: absolute; left: 0;"></i>
+                            Responsive Web Design
+                        </li>
+                        <li style="margin-bottom: 0.5rem; position: relative; padding-left: 1.5rem;">
+                            <i class="fas fa-check-circle" style="color: var(--primary); position: absolute; left: 0;"></i>
+                            Performance Optimization
+                        </li>
+                    </ul>
+                </div>
+                
+                <!-- Service 2 -->
+                <div class="glass-card service-card fade-in delay-1">
+                    <div class="service-icon">
+                        <i class="fas fa-server"></i>
+                    </div>
+                    <h3 class="service-title">Backend Development</h3>
+                    <p class="service-description">
+                        Scalable server-side applications with Node.js, Express, PHP, and Laravel, featuring robust APIs, authentication, and database integration.
+                    </p>
+                    <ul style="text-align: left; margin-top: 1rem; padding-left: 1.5rem;">
+                        <li style="margin-bottom: 0.5rem; position: relative; padding-left: 1.5rem;">
+                            <i class="fas fa-check-circle" style="color: var(--primary); position: absolute; left: 0;"></i>
+                            API Development
+                        </li>
+                        <li style="margin-bottom: 0.5rem; position: relative; padding-left: 1.5rem;">
+                            <i class="fas fa-check-circle" style="color: var(--primary); position: absolute; left: 0;"></i>
+                            Microservices Architecture
+                        </li>
+                        <li style="margin-bottom: 0.5rem; position: relative; padding-left: 1.5rem;">
+                            <i class="fas fa-check-circle" style="color: var(--primary); position: absolute; left: 0;"></i>
+                            Serverless Functions
+                        </li>
+                    </ul>
+                </div>
+                
+                <!-- Service 3 -->
+                <div class="glass-card service-card fade-in delay-3">
+                    <div class="service-icon">
+                        <i class="fas fa-database"></i>
+                    </div>
+                    <h3 class="service-title">Database Architecture</h3>
+                    <p class="service-description">
+                        Efficient database design and optimization with MongoDB and MySQL tailored to your application's specific requirements.
+                    </p>
+                    <ul style="text-align: left; margin-top: 1rem; padding-left: 1.5rem;">
+                        <li style="margin-bottom: 0.5rem; position: relative; padding-left: 1.5rem;">
+                            <i class="fas fa-check-circle" style="color: var(--primary); position: absolute; left: 0;"></i>
+                            Database Design
+                        </li>
+                        <li style="margin-bottom: 0.5rem; position: relative; padding-left: 1.5rem;">
+                            <i class="fas fa-check-circle" style="color: var(--primary); position: absolute; left: 0;"></i>
+                            Query Optimization
+                        </li>
+                        <li style="margin-bottom: 0.5rem; position: relative; padding-left: 1.5rem;">
+                            <i class="fas fa-check-circle" style="color: var(--primary); position: absolute; left: 0;"></i>
+                            Data Migration
+                        </li>
+                    </ul>
+                </div>
+                
+                <!-- Service 4 -->
+                <div class="glass-card service-card fade-in delay-1">
+                    <div class="service-icon">
+                        <i class="fas fa-paint-brush"></i>
+                    </div>
+                    <h3 class="service-title">UI/UX Design</h3>
+                    <p class="service-description">
+                        Intuitive user interfaces and engaging user experiences designed to maximize conversions and user satisfaction.
+                    </p>
+                    <ul style="text-align: left; margin-top: 1rem; padding-left: 1.5rem;">
+                        <li style="margin-bottom: 0.5rem; position: relative; padding-left: 1.5rem;">
+                            <i class="fas fa-check-circle" style="color: var(--primary); position: absolute; left: 0;"></i>
+                            Wireframing & Prototyping
+                        </li>
+                        <li style="margin-bottom: 0.5rem; position: relative; padding-left: 1.5rem;">
+                            <i class="fas fa-check-circle" style="color: var(--primary); position: absolute; left: 0;"></i>
+                            User Research
+                        </li>
+                        <li style="margin-bottom: 0.5rem; position: relative; padding-left: 1.5rem;">
+                            <i class="fas fa-check-circle" style="color: var(--primary); position: absolute; left: 0;"></i>
+                            Interaction Design
+                        </li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+    </section>
+    
+    <!-- Portfolio Section - Improved Design -->
+    <section id="portfolio" class="section">
+        <div class="container">
+            <h2 class="section-title">Featured <span class="text-primary">Projects</span></h2>
+            <p class="text-center" style="max-width: 700px; margin: 0 auto 3rem;">Here are some of my recent projects that showcase my skills and expertise in full stack development.</p>
+            
+            <div class="portfolio-grid">
+                <!-- Portfolio Item 1 -->
+                <div class="portfolio-item glass-card fade-in">
+                    <div class="portfolio-image-container">
+                        <img src="ecommerce.jpg" alt="E-commerce Platform" class="portfolio-image" loading="lazy">
+                        <div class="portfolio-overlay">
+                            <div style="text-align: center; padding: 1rem;">
+                                <h3 style="color: var(--text-white); margin-bottom: 1rem;">E-commerce Platform</h3>
+                                <p style="color: var(--text-light); margin-bottom: 1.5rem;">A complete online shopping solution with payment integration and admin dashboard</p>
+                                <div class="btn-group" style="justify-content: center;">
+                                    <a href="https://example-ecommerce.com" target="_blank" rel="noopener" class="btn btn-primary">Live Demo</a>
+                                    <a href="https://github.com/example/ecommerce" target="_blank" rel="noopener" class="btn btn-outline">View Code</a>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="portfolio-info">
+                        <h3 class="portfolio-title">E-commerce Platform</h3>
+                        <p class="portfolio-description">A full-featured online store with product management, cart functionality, payment processing, and admin dashboard.</p>
+                        <div class="portfolio-tags">
+                            <span class="tag">React</span>
+                            <span class="tag">Node.js</span>
+                            <span class="tag">MongoDB</span>
+                            <span class="tag">Stripe API</span>
+                        </div>
+                    </div>
+                </div>
+                
+                <!-- Portfolio Item 2 -->
+                <div class="portfolio-item glass-card fade-in delay-1">
+                    <div class="portfolio-image-container">
+                        <img src="task-manager.jpg" alt="Task Management App" class="portfolio-image" loading="lazy">
+                        <div class="portfolio-overlay">
+                            <div style="text-align: center; padding: 1rem;">
+                                <h3 style="color: var(--text-white); margin-bottom: 1rem;">Task Management App</h3>
+                                <p style="color: var(--text-light); margin-bottom: 1.5rem;">Productivity application for teams to collaborate on tasks and projects</p>
+                                <div class="btn-group" style="justify-content: center;">
+                                    <a href="https://play.google.com/store/apps/details?id=com.taskopad.taskopad" target="_blank" rel="noopener" class="btn btn-primary">View App</a>
+                                    <a href="https://github.com/example/task-manager" target="_blank" rel="noopener" class="btn btn-outline">View Code</a>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="portfolio-info">
+                        <h3 class="portfolio-title">Task Management App</h3>
+                        <p class="portfolio-description">A productivity application with task organization, real-time collaboration, and progress tracking features.</p>
+                        <div class="portfolio-tags">
+                            <span class="tag">React Native</span>
+                            <span class="tag">Firebase</span>
+                            <span class="tag">Redux</span>
+                        </div>
+                    </div>
+                </div>
+                
+                <!-- Portfolio Item 3 -->
+                <div class="portfolio-item glass-card fade-in delay-2">
+                    <div class="portfolio-image-container">
+                        <img src="health-app.jpg" alt="Health Tracking App" class="portfolio-image" loading="lazy">
+                        <div class="portfolio-overlay">
+                            <div style="text-align: center; padding: 1rem;">
+                                <h3 style="color: var(--text-white); margin-bottom: 1rem;">Health Tracking App</h3>
+                                <p style="color: var(--text-light); margin-bottom: 1.5rem;">Mobile app for fitness and health monitoring with data visualization</p>
+                                <div class="btn-group" style="justify-content: center;">
+                                    <a href="https://play.google.com/store/apps/details?id=com.appsky.android.bloodpressure" target="_blank" rel="noopener" class="btn btn-primary">View App</a>
+                                    <a href="https://github.com/example/health-tracker" target="_blank" rel="noopener" class="btn btn-outline">View Code</a>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="portfolio-info">
+                        <h3 class="portfolio-title">Health Tracking App</h3>
+                        <p class="portfolio-description">Mobile application for fitness and health monitoring with data visualization and goal setting.</p>
+                        <div class="portfolio-tags">
+                            <span class="tag">Flutter</span>
+                            <span class="tag">GraphQL</span>
+                            <span class="tag">AWS</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            
+            <div class="text-center fade-in delay-3" style="margin-top: 3rem;">
+                <a href="portfolio.html" class="btn btn-primary">View All Projects</a>
+            </div>
+        </div>
+    </section>
+    
+    <!-- About Section -->
+    <section id="about" class="section about-section">
+        <div class="container">
+            <h2 class="section-title">About <span class="text-primary">Me</span></h2>
+            <p class="text-center" style="max-width: 700px; margin: 0 auto 3rem;">Get to know more about my journey, skills, and what drives me as a developer.</p>
+            
+            <div class="about-container">
+                <div class="about-text fade-in">
+                    <p>
+                        I'm Prince Developer, a passionate Full Stack Web Developer with over 5 years of hands-on experience in creating responsive, user-friendly, and performance-driven websites.
+My journey into web development began at the age of 12, when I started experimenting with HTML and CSS to customize my MySpace profile — and I’ve been deeply in love with coding ever since.
+                    </p>
+                    <p>
+                       I specialize in full-stack JavaScript development using technologies like MERN and MEAN, with strong proficiency in Python, PHP, and other programming languages.
+What truly drives me is the challenge of solving real-world problems through clean, efficient, and maintainable code that stands the test of time.
+                    </p>
+                    <p>
+                        Throughout my career, I've had the privilege of working with startups, agencies, and enterprise clients to deliver digital solutions that drive business growth. My approach combines technical expertise with a keen understanding of user needs and business objectives.
+                    </p>
+                    
+                    <div class="about-stats fade-in delay-1">
+                        <div class="stat-item glass-card">
+                            <div class="stat-number">50+</div>
+                            <div class="stat-label">Projects Completed</div>
+                        </div>
+                        <div class="stat-item glass-card">
+                            <div class="stat-number">30+</div>
+                            <div class="stat-label">Happy Clients</div>
+                        </div>
+                        <div class="stat-item glass-card">
+                            <div class="stat-number">5+</div>
+                            <div class="stat-label">Years Experience</div>
+                        </div>
+                        <div class="stat-item glass-card">
+                            <div class="stat-number">10+</div>
+                            <div class="stat-label">Technologies</div>
+                        </div>
+                    </div>
+                    
+                    <div class="btn-group fade-in delay-2">
+                        <a href="Prince-developer-resume.pdf" download class="btn btn-primary">
+                            <i class="fas fa-download" style="margin-right: 0.5rem;"></i> Download Resume
+                        </a>
+                        <a href="#contact" class="btn btn-outline">Let's Talk</a>
+                    </div>
+                </div>
+                
+                <div class="terminal glass-card fade-in delay-1">
+                    <div class="terminal-header">
+                        <div class="terminal-btn red"></div>
+                        <div class="terminal-btn yellow"></div>
+                        <div class="terminal-btn green"></div>
+                    </div>
+                    <div class="terminal-content">
+                        <span class="terminal-prompt">Prince@developer</span><span class="terminal-command">:~$ cat skills.txt</span><br><br>
+                        <span class="terminal-command">Frontend:</span> React, Angular, HTML5, CSS3, Bootstrap<br>
+                        <span class="terminal-command">Backend:</span> Node.js, Express,PHP<br>
+                        <span class="terminal-command">Databases:</span> MongoDB,MySQL<br>
+                        <span class="terminal-command">Tools:</span> Git, Webpack, Figma, VS Code<br><br>
+                        <span class="terminal-prompt">Prince@developer</span><span class="terminal-command">:~$</span> <span class="terminal-cursor">|</span>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+    
+    <!-- Skills Section -->
+    <section id="skills" class="section">
+        <div class="container">
+            <h2 class="section-title">My <span class="text-primary">Skills</span></h2>
+            <p class="text-center" style="max-width: 700px; margin: 0 auto 3rem;">I've worked with a wide range of technologies across the full stack. Here's a breakdown of my core competencies.</p>
+            
+            <div class="skills-container">
+                <!-- Frontend Skills -->
+                <div class="skill-category glass-card fade-in">
+                    <h3 class="skill-category-title">
+                        <i class="fas fa-laptop-code"></i> Frontend
+                    </h3>
+                    <div class="skill-item">
+                        <div class="skill-info">
+                            <span class="skill-name">React.js</span>
+                            <span class="skill-percent">95%</span>
+                        </div>
+                        <div class="skill-bar">
+                            <div class="skill-progress" style="width: 95%;"></div>
+                        </div>
+                    </div>
+                    <div class="skill-item">
+                        <div class="skill-info">
+                            <span class="skill-name">Angular</span>
+                            <span class="skill-percent">85%</span>
+                        </div>
+                        <div class="skill-bar">
+                            <div class="skill-progress" style="width: 85%;"></div>
+                        </div>
+                    </div>
+                    <div class="skill-item">
+                        <div class="skill-info">
+                            <span class="skill-name">HTML5 & CSS3</span>
+                            <span class="skill-percent">98%</span>
+                        </div>
+                        <div class="skill-bar">
+                            <div class="skill-progress" style="width: 98%;"></div>
+                        </div>
+                    </div>
+                    <div class="skill-item">
+                        <div class="skill-info">
+                            <span class="skill-name">JavaScript (ES6+)</span>
+                            <span class="skill-percent">90%</span>
+                        </div>
+                        <div class="skill-bar">
+                            <div class="skill-progress" style="width: 90%;"></div>
+                        </div>
+                    </div>
+                </div>
+                
+                <!-- Backend Skills -->
+                <div class="skill-category glass-card fade-in delay-1">
+                    <h3 class="skill-category-title">
+                        <i class="fas fa-server"></i> Backend
+                    </h3>
+                    <div class="skill-item">
+                        <div class="skill-info">
+                            <span class="skill-name">Node.js</span>
+                            <span class="skill-percent">90%</span>
+                        </div>
+                        <div class="skill-bar">
+                            <div class="skill-progress" style="width: 90%;"></div>
+                        </div>
+                    </div>
+                    <div class="skill-item">
+                        <div class="skill-info">
+                            <span class="skill-name">Express</span>
+                            <span class="skill-percent">88%</span>
+                        </div>
+                        <div class="skill-bar">
+                            <div class="skill-progress" style="width: 88%;"></div>
+                        </div>
+                    </div>
+                    <div class="skill-item">
+                        <div class="skill-info">
+                            <span class="skill-name">PHP</span>
+                            <span class="skill-percent">75%</span>
+                        </div>
+                        <div class="skill-bar">
+                            <div class="skill-progress" style="width: 75%;"></div>
+                        </div>
+                    </div>
+                </div>
+                
+                <!-- Other Skills -->
+                <div class="skill-category glass-card fade-in delay-2">
+                    <h3 class="skill-category-title">
+                        <i class="fas fa-cogs"></i> Other Skills
+                    </h3>
+                    <div class="skill-item">
+                        <div class="skill-info">
+                            <span class="skill-name">MongoDB</span>
+                            <span class="skill-percent">85%</span>
+                        </div>
+                        <div class="skill-bar">
+                            <div class="skill-progress" style="width: 85%;"></div>
+                        </div>
+                    </div>
+                    <div class="skill-item">
+                        <div class="skill-info">
+                            <span class="skill-name">My SQL</span>
+                            <span class="skill-percent">80%</span>
+                        </div>
+                        <div class="skill-bar">
+                            <div class="skill-progress" style="width: 80%;"></div>
+                        </div>
+                    </div>
+                    <div class="skill-item">
+                        <div class="skill-info">
+                            <span class="skill-name">AWS</span>
+                            <span class="skill-percent">75%</span>
+                        </div>
+                        <div class="skill-bar">
+                            <div class="skill-progress" style="width: 75%;"></div>
+                        </div>
+                    </div>
+                    <div class="skill-item">
+                        <div class="skill-info">
+                            <span class="skill-name">Git</span>
+                            <span class="skill-percent">90%</span>
+                        </div>
+                        <div class="skill-bar">
+                            <div class="skill-progress" style="width: 90%;"></div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+    
+    <!-- Testimonials Section - Improved Design -->
+    <section id="testimonials" class="section testimonials-section">
+        <div class="container">
+            <h2 class="section-title">Client <span class="text-primary">Testimonials</span></h2>
+            <p class="text-center" style="max-width: 700px; margin: 0 auto 3rem;">Don't just take my word for it. Here's what my clients have to say about working with me.</p>
+            
+            <div class="testimonials-container">
+                <!-- Testimonial 1 -->
+                <div class="testimonial-card glass-card fade-in">
+                    <div class="testimonial-quote">"</div>
+                    <div class="testimonial-content">
+                        Prince transformed our e-commerce platform with his technical expertise. The new system handles 3x more traffic with faster load times. His attention to detail and communication throughout the project was exceptional.
+                    </div>
+                    <div class="testimonial-author">
+                        <img src="client1.jpg" alt="Sarah Johnson" class="testimonial-avatar" loading="lazy">
+                        <div class="testimonial-author-info">
+                            <h4>C.B Singh</h4>
+                            <p>Owner, Krishna SuperStore</p>
+                            <div style="display: flex; margin-top: 0.5rem;">
+                                <i class="fas fa-star" style="color: #FFD700; margin-right: 0.25rem;"></i>
+                                <i class="fas fa-star" style="color: #FFD700; margin-right: 0.25rem;"></i>
+                                <i class="fas fa-star" style="color: #FFD700; margin-right: 0.25rem;"></i>
+                                <i class="fas fa-star" style="color: #FFD700; margin-right: 0.25rem;"></i>
+                                <i class="fas fa-star" style="color: #FFD700;"></i>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                
+                <!-- Testimonial 2 -->
+                <div class="testimonial-card glass-card fade-in delay-1">
+                    <div class="testimonial-quote">"</div>
+                    <div class="testimonial-content">
+                        Working with Prince on our mobile app was a game-changer. He not only delivered ahead of schedule but also provided valuable insights that improved the user experience. We've seen a 40% increase in user retention since launch.
+                    </div>
+                    <div class="testimonial-author">
+                        <img src="client2.jpg" alt="Michael Chen" class="testimonial-avatar" loading="lazy">
+                        <div class="testimonial-author-info">
+                            <h4>Michael Chen</h4>
+                            <p>Product Manager, TechStart</p>
+                            <div style="display: flex; margin-top: 0.5rem;">
+                                <i class="fas fa-star" style="color: #FFD700; margin-right: 0.25rem;"></i>
+                                <i class="fas fa-star" style="color: #FFD700; margin-right: 0.25rem;"></i>
+                                <i class="fas fa-star" style="color: #FFD700; margin-right: 0.25rem;"></i>
+                                <i class="fas fa-star" style="color: #FFD700; margin-right: 0.25rem;"></i>
+                                <i class="fas fa-star" style="color: #FFD700;"></i>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                
+                <!-- Testimonial 3 -->
+                <div class="testimonial-card glass-card fade-in delay-2">
+                    <div class="testimonial-quote">"</div>
+                    <div class="testimonial-content">
+                        Prince built a smooth, responsive portal for our institute where students easily access notes and video lectures. It made our teaching process more organized. Highly recommended.
+                    </div>
+                    <div class="testimonial-author">
+                        <img src="client3.jpg" alt="David Rodriguez" class="testimonial-avatar" loading="lazy">
+                        <div class="testimonial-author-info">
+                            <h4>Vipinder Singh</h4>
+                            <p>Founder – R.R Classes</p>
+                            <div style="display: flex; margin-top: 0.5rem;">
+                                <i class="fas fa-star" style="color: #FFD700; margin-right: 0.25rem;"></i>
+                                <i class="fas fa-star" style="color: #FFD700; margin-right: 0.25rem;"></i>
+                                <i class="fas fa-star" style="color: #FFD700; margin-right: 0.25rem;"></i>
+                                <i class="fas fa-star" style="color: #FFD700; margin-right: 0.25rem;"></i>
+                                <i class="fas fa-star" style="color: #FFD700;"></i>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+    
+    <!-- Contact Section - Improved Design -->
+    <section id="contact" class="section">
+        <div class="container">
+            <h2 class="section-title">Get In <span class="text-primary">Touch</span></h2>
+            <p class="text-center" style="max-width: 700px; margin: 0 auto 3rem;">Have a project in mind or want to discuss potential opportunities? I'd love to hear from you!</p>
+            
+            <div class="contact-container">
+                <div class="glass-card fade-in">
+                    <div class="contact-info-card">
+                        <h3 style="font-size: 1.5rem; margin-bottom: 1.5rem; color: var(--text-white);">Contact Information</h3>
+                        
+                        <div class="contact-info-item">
+                            <div class="contact-icon">
+                                <i class="fas fa-envelope"></i>
+                            </div>
+                            <div>
+                                <div class="contact-label">Email</div>
+                                <div class="contact-value">
+                                    <a href="mailto:princek.official25@gmail.com">princek.official25@gmail.com</a>
+                                </div>
+                            </div>
+                        </div>
+                        
+                        <div class="contact-info-item">
+                            <div class="contact-icon">
+                                <i class="fab fa-whatsapp"></i>
+                            </div>
+                            <div>
+                                <div class="contact-label">WhatsApp</div>
+                                <div class="contact-value">
+                                    <a href="https://wa.me/8273847174" target="_blank" rel="noopener noreferrer">+91 8273847174</a>
+                                </div>
+                            </div>
+                        </div>
+                        
+                        <div class="contact-info-item">
+                            <div class="contact-icon">
+                                <i class="fas fa-map-marker-alt"></i>
+                            </div>
+                            <div>
+                                <div class="contact-label">Location</div>
+                                <div class="contact-value">Mathura, India</div>
+                            </div>
+                        </div>
+                        
+                        <div class="contact-info-item">
+                            <div class="contact-icon">
+                                <i class="fas fa-clock"></i>
+                            </div>
+                            <div>
+                                <div class="contact-label">Working Hours</div>
+                                <div class="contact-value">Mon-Fri: 9AM - 6PM IST</div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                
+                <div class="fade-in delay-1">
+                    <div class="glass-card" style="padding: 2rem; margin-bottom: 2rem; text-align: center;">
+                        <h3 style="font-size: 1.25rem; margin-bottom: 1.5rem; color: var(--text-white);">Follow Me</h3>
+                        
+                        <div class="social-links">
+                            <a href="https://github.com/Princedeveloper" target="_blank" rel="noopener noreferrer" class="social-link" aria-label="GitHub">
+                                <i class="fab fa-github"></i>
+                            </a>
+                            <a href="https://linkedin.com/in/Princedeveloper" target="_blank" rel="noopener noreferrer" class="social-link" aria-label="LinkedIn">
+                                <i class="fab fa-linkedin-in"></i>
+                            </a>
+                            <a href="https://twitter.com/Princedeveloper" target="_blank" rel="noopener noreferrer" class="social-link" aria-label="Twitter">
+                                <i class="fab fa-twitter"></i>
+                            </a>
+                            <a href="https://instagram.com/Princedeveloper" target="_blank" rel="noopener noreferrer" class="social-link" aria-label="Instagram">
+                                <i class="fab fa-instagram"></i>
+                            </a>
+                        </div>
+                    </div>
+                    
+                    <div class="glass-card" style="padding: 2rem; text-align: center;">
+                        <h3 style="font-size: 1.25rem; margin-bottom: 1.5rem; color: var(--text-white);">Quick Contact</h3>
+                        <p style="margin-bottom: 1.5rem;">Prefer to chat directly? Click below to message me on WhatsApp.</p>
+                        <a href="https://wa.me/919876543210?text=Hi%20Prince,%20I%20saw%20your%20portfolio%20and%20wanted%20to%20connect" class="btn btn-primary" target="_blank" rel="noopener noreferrer">
+                            <i class="fab fa-whatsapp" style="margin-right: 0.5rem;"></i> Chat on WhatsApp
+                        </a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+    
+    <!-- Footer -->
+    <footer>
+        <div class="container">
+            <div class="footer-container">
+                <div class="footer-about">
+                    <div class="footer-logo">
+                        <span class="text-primary">&lt;</span>PrinceCoder<span class="text-primary">/&gt;</span>
+                    </div>
+                    <p>
+                        Full Stack Developer specializing in web and mobile application development. 
+                        Let's build something amazing together!
+                    </p>
+                    <button class="theme-toggle" id="footerThemeToggle" aria-label="Toggle theme" style="margin-top: 1rem; display: flex; align-items: center; gap: 0.5rem;">
+                        <i class="fas fa-sun"></i> Toggle Dark Mode
+                    </button>
+                </div>
+                
+                <div class="footer-links-container">
+                    <div>
+                        <h3 class="footer-links-title">Quick Links</h3>
+                        <ul class="footer-links">
+                            <li><a href="#home" class="footer-link">Home</a></li>
+                            <li><a href="#services" class="footer-link">Services</a></li>
+                            <li><a href="#portfolio" class="footer-link">Portfolio</a></li>
+                            <li><a href="#about" class="footer-link">About</a></li>
+                            <li><a href="#contact" class="footer-link">Contact</a></li>
+                        </ul>
+                    </div>
+                    
+                    <div>
+                        <h3 class="footer-links-title">Services</h3>
+                        <ul class="footer-links">
+                            <li><a href="#services" class="footer-link">Web Development</a></li>
+                            <li><a href="#services" class="footer-link">Web Management System</a></li>
+                            <li><a href="#services" class="footer-link">UI/UX Design</a></li>
+                            <li><a href="#services" class="footer-link">Database Design</a></li>
+                        </ul>
+                    </div>
+                    
+                    <div>
+                        <h3 class="footer-links-title">Resources</h3>
+                        <ul class="footer-links">
+                            <li><a href="#" class="footer-link">Blog</a></li>
+                            <li><a href="#" class="footer-link">Case Studies</a></li>
+                            <li><a href="#" class="footer-link">Documentation</a></li>
+                            <li><a href="#" class="footer-link">FAQ</a></li>
+                            <li><a href="#" class="footer-link">Privacy Policy</a></li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+            
+            <div class="footer-bottom">
+                <p class="copyright">
+                    &copy; <span id="year"></span> Prince Developer. All rights reserved.
+                </p>
+            </div>
+        </div>
+    </footer>
+    
+    <!-- Back to Top Button -->
+    <a href="#home" class="back-to-top" id="backToTop" aria-label="Back to top">
+        <i class="fas fa-arrow-up"></i>
+    </a>
+    
+    <script>
+        // Mobile menu toggle
+        const menuToggle = document.getElementById('menuToggle');
+        const navLinks = document.getElementById('navLinks');
+        
+        menuToggle.addEventListener('click', () => {
+            navLinks.classList.toggle('active');
+            menuToggle.innerHTML = navLinks.classList.contains('active') ? 
+                '<i class="fas fa-times"></i>' : '<i class="fas fa-bars"></i>';
+        });
+        
+        // Close menu when clicking on a link
+        document.querySelectorAll('.nav-links a').forEach(link => {
+            link.addEventListener('click', () => {
+                navLinks.classList.remove('active');
+                menuToggle.innerHTML = '<i class="fas fa-bars"></i>';
+            });
+        });
+        
+        // Navbar scroll effect
+        const navbar = document.getElementById('navbar');
+        window.addEventListener('scroll', () => {
+            if (window.scrollY > 50) {
+                navbar.classList.add('scrolled');
+            } else {
+                navbar.classList.remove('scrolled');
+            }
+        });
+        
+        // Back to top button
+        const backToTop = document.getElementById('backToTop');
+        window.addEventListener('scroll', () => {
+            if (window.scrollY > 300) {
+                backToTop.classList.add('active');
+            } else {
+                backToTop.classList.remove('active');
+            }
+        });
+        
+        // Smooth scroll for anchor links
+        document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+            anchor.addEventListener('click', function(e) {
+                e.preventDefault();
+                
+                const targetId = this.getAttribute('href');
+                const targetElement = document.querySelector(targetId);
+                
+                if (targetElement) {
+                    window.scrollTo({
+                        top: targetElement.offsetTop - 80,
+                        behavior: 'smooth'
+                    });
+                }
+            });
+        });
+        
+        // Set current year in footer
+        document.getElementById('year').textContent = new Date().getFullYear();
+        
+        // Animate skill bars when they come into view
+        const skillBars = document.querySelectorAll('.skill-progress');
+        
+        const animateSkillBars = () => {
+            skillBars.forEach(bar => {
+                const percent = bar.style.width;
+                bar.style.width = '0';
+                
+                const observer = new IntersectionObserver((entries) => {
+                    if (entries[0].isIntersecting) {
+                        bar.style.width = percent;
+                        observer.unobserve(bar.parentElement.parentElement);
+                    }
+                }, { threshold: 0.5 });
+                
+                observer.observe(bar.parentElement.parentElement);
+            });
+        };
+        
+        // Dark mode toggle
+        const themeToggle = document.getElementById('themeToggle');
+        const footerThemeToggle = document.getElementById('footerThemeToggle');
+        const currentTheme = localStorage.getItem('theme') || 'light';
+        
+        // Apply the saved theme
+        document.documentElement.setAttribute('data-theme', currentTheme);
+        updateThemeIcon(currentTheme);
+        
+        // Toggle theme function
+        function toggleTheme() {
+            const currentTheme = document.documentElement.getAttribute('data-theme');
+            const newTheme = currentTheme === 'dark' ? 'light' : 'dark';
+            
+            document.documentElement.setAttribute('data-theme', newTheme);
+            localStorage.setItem('theme', newTheme);
+            updateThemeIcon(newTheme);
+            
+            // Add animation to theme toggle button
+            const icon = themeToggle.querySelector('i');
+            icon.classList.add('pulse');
+            setTimeout(() => {
+                icon.classList.remove('pulse');
+            }, 2000);
+        }
+        
+        // Update theme icon based on current theme
+        function updateThemeIcon(theme) {
+            const icon = theme === 'dark' ? 'fa-sun' : 'fa-moon';
+            themeToggle.innerHTML = `<i class="fas ${icon}"></i>`;
+            footerThemeToggle.innerHTML = `<i class="fas ${icon}"></i> Toggle ${theme === 'dark' ? 'Light' : 'Dark'} Mode`;
+        }
+        
+        // Add event listeners for theme toggles
+        themeToggle.addEventListener('click', toggleTheme);
+        footerThemeToggle.addEventListener('click', toggleTheme);
+        
+        // Initialize animations when page loads
+        document.addEventListener('DOMContentLoaded', () => {
+            animateSkillBars();
+            
+            // Terminal typing animation
+            const terminalLines = [
+                "Prince@developer:~$ npm init Prince-website",
+                "Creating a new Prince Developer website...",
+                "Installing dependencies...",
+                "Building components...",
+                "Optimizing performance...",
+                "Website ready! Visit https://Princedeveloper.com"
+            ];
+            
+            const terminalContent = document.querySelector('.terminal-content');
+            
+            // Clear existing content
+            terminalContent.innerHTML = '';
+            
+            // Create new elements for typing animation
+            const prompt = document.createElement('span');
+            prompt.className = 'terminal-prompt';
+            prompt.textContent = 'Prince@developer';
+            
+            const command = document.createElement('span');
+            command.className = 'terminal-command';
+            command.textContent = ':~$ ';
+            
+            terminalContent.appendChild(prompt);
+            terminalContent.appendChild(command);
+            
+            let currentLine = 0;
+            let currentChar = 0;
+            let isTyping = true;
+            
+            const typeNextChar = () => {
+                if (currentLine < terminalLines.length) {
+                    if (currentChar < terminalLines[currentLine].length) {
+                        command.textContent += terminalLines[currentLine].charAt(currentChar);
+                        currentChar++;
+                        setTimeout(typeNextChar, 50);
+                    } else {
+                        // Line complete
+                        const br = document.createElement('br');
+                        terminalContent.appendChild(br);
+                        
+                        currentLine++;
+                        currentChar = 0;
+                        
+                        if (currentLine < terminalLines.length) {
+                            // Create new prompt for next line
+                            const newPrompt = document.createElement('span');
+                            newPrompt.className = 'terminal-prompt';
+                            newPrompt.textContent = 'Prince@developer';
+                            
+                            const newCommand = document.createElement('span');
+                            newCommand.className = 'terminal-command';
+                            newCommand.textContent = ':~$ ';
+                            
+                            terminalContent.appendChild(newPrompt);
+                            terminalContent.appendChild(newCommand);
+                            
+                            command = newCommand;
+                            setTimeout(typeNextChar, 1000);
+                        } else {
+                            // All lines complete, add cursor
+                            const cursor = document.createElement('span');
+                            cursor.className = 'terminal-cursor';
+                            cursor.textContent = '|';
+                            terminalContent.appendChild(cursor);
+                        }
+                    }
+                }
+            };
+            
+            // Start typing animation after a delay
+            setTimeout(typeNextChar, 1500);
+        });
+    </script>
+    
+    <!-- Structured data for SEO -->
+    <script type="application/ld+json">
+    {
+        "@context": "https://schema.org",
+        "@type": "Person",
+        "name": "Prince Developer",
+        "jobTitle": "Full Stack Developer",
+        "url": "https://Princedeveloper.com",
+        "sameAs": [
+            "https://github.com/Princedeveloper",
+            "https://linkedin.com/in/Princedeveloper",
+            "https://twitter.com/Princedeveloper"
+        ],
+        "description": "Professional Full Stack Developer specializing in web and mobile application development with 5+ years of experience.",
+        "address": {
+            "@type": "PostalAddress",
+            "addressLocality": "Bangalore",
+            "addressRegion": "Karnataka",
+            "addressCountry": "India"
+        },
+        "email": "contact@Princedeveloper.com",
+        "telephone": "+919876543210"
+    }
+    </script>
+</body>
+</html>
