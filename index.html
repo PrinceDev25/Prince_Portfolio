@@ -9,12 +9,12 @@
     <meta property="og:title" content="Prince Developer | Full Stack Development Services">
     <meta property="og:description" content="Professional Full Stack Developer with 5+ years experience building web and mobile applications.">
     <meta property="og:type" content="website">
-    <meta property="og:url" content="https://Princedeveloper.com">
-    <meta property="og:image" content="https://Princedeveloper.com/images/profile.jpg">
+    <meta property="og:url" content="https://prince-developer.com">
+    <meta property="og:image" content="https://prince-developer.com/images/profile.jpg">
     <meta name="twitter:card" content="summary_large_image">
     
     <title>Prince Developer | Full Stack Web & Mobile App Developer</title>
-    <link rel="canonical" href="https://Princedeveloper.com">
+    <link rel="canonical" href="https://prince-developer.com">
     
     <!-- Preload critical resources -->
     <link rel="preload" href="https://fonts.googleapis.com/css2?family=Fira+Code:wght@300;400;500;600;700&family=Poppins:wght@300;400;500;600;700&display=swap" as="style">
@@ -596,7 +596,12 @@
             font-size: 0.875rem;
         }
 
-        /* Terminal Animation */
+        /* Terminal Animation - Enhanced Design */
+        .terminal-container {
+            position: relative;
+            height: 100%;
+        }
+
         .terminal {
             background-color: rgba(233, 236, 239, 0.8);
             border-radius: var(--border-radius-md);
@@ -606,10 +611,12 @@
             overflow: hidden;
             height: 100%;
             transition: all 0.5s ease;
+            box-shadow: inset 0 0 10px rgba(0,0,0,0.1);
         }
 
         [data-theme="dark"] .terminal {
             background-color: rgba(0, 0, 0, 0.8);
+            box-shadow: inset 0 0 10px rgba(0,0,0,0.3);
         }
 
         .terminal::before {
@@ -622,11 +629,13 @@
             background: linear-gradient(transparent 95%, rgba(76, 175, 80, 0.05) 95%);
             background-size: 100% 24px;
             pointer-events: none;
+            z-index: 0;
         }
 
         .terminal-header {
             display: flex;
             margin-bottom: 1rem;
+            align-items: center;
         }
 
         .terminal-btn {
@@ -634,32 +643,72 @@
             height: 14px;
             border-radius: 50%;
             margin-right: 8px;
+            transition: transform 0.2s ease;
+        }
+
+        .terminal-btn:hover {
+            transform: scale(1.1);
         }
 
         .terminal-btn.red { background: #ff5f56; }
         .terminal-btn.yellow { background: #ffbd2e; }
         .terminal-btn.green { background: #27c93f; }
 
+        .terminal-title {
+            margin-left: auto;
+            font-size: 0.75rem;
+            color: var(--text-light);
+            opacity: 0.7;
+        }
+
         .terminal-content {
             line-height: 1.6;
             font-size: 0.875rem;
+            position: relative;
+            z-index: 1;
+            min-height: 300px;
+        }
+
+        .terminal-line {
+            margin-bottom: 0.5rem;
+            display: flex;
+            flex-wrap: wrap;
         }
 
         .terminal-prompt {
             color: #569cd6;
+            margin-right: 0.5rem;
+            white-space: nowrap;
         }
 
         .terminal-command {
             color: var(--text-white);
+            flex-grow: 1;
+        }
+
+        .terminal-output {
+            color: var(--text-light);
+            margin-left: calc(1.5rem + 30px); /* Match prompt width */
         }
 
         .terminal-cursor {
+            display: inline-block;
+            width: 8px;
+            height: 16px;
+            background: var(--primary);
+            vertical-align: middle;
+            margin-left: 2px;
             animation: blink 1s infinite;
         }
 
         @keyframes blink {
             0%, 100% { opacity: 1; }
             50% { opacity: 0; }
+        }
+
+        .terminal-typing {
+            border-right: 2px solid var(--primary);
+            animation: blink 1s infinite;
         }
 
         /* Skills Section */
@@ -1108,6 +1157,10 @@
             .profile-photo {
                 max-width: 420px;
             }
+            
+            .terminal {
+                min-height: 400px;
+            }
         }
 
         @media (max-width: 767px) {
@@ -1448,7 +1501,7 @@
         </div>
     </section>
     
-    <!-- About Section -->
+    <!-- About Section with Enhanced Terminal -->
     <section id="about" class="section about-section">
         <div class="container">
             <h2 class="section-title">About <span class="text-primary">Me</span></h2>
@@ -1458,7 +1511,7 @@
                 <div class="about-text fade-in">
                     <p>
                         I'm Prince Developer, a passionate Full Stack Web Developer with over 5 years of hands-on experience in creating responsive, user-friendly, and performance-driven websites.
-My journey into web development began at the age of 12, when I started experimenting with HTML and CSS to customize my MySpace profile — and I’ve been deeply in love with coding ever since.
+My journey into web development began at the age of 12, when I started experimenting with HTML and CSS to customize my MySpace profile — and I've been deeply in love with coding ever since.
                     </p>
                     <p>
                        I specialize in full-stack JavaScript development using technologies like MERN and MEAN, with strong proficiency in Python, PHP, and other programming languages.
@@ -1495,19 +1548,17 @@ What truly drives me is the challenge of solving real-world problems through cle
                     </div>
                 </div>
                 
-                <div class="terminal glass-card fade-in delay-1">
-                    <div class="terminal-header">
-                        <div class="terminal-btn red"></div>
-                        <div class="terminal-btn yellow"></div>
-                        <div class="terminal-btn green"></div>
-                    </div>
-                    <div class="terminal-content">
-                        <span class="terminal-prompt">Prince@developer</span><span class="terminal-command">:~$ cat skills.txt</span><br><br>
-                        <span class="terminal-command">Frontend:</span> React, Angular, HTML5, CSS3, Bootstrap<br>
-                        <span class="terminal-command">Backend:</span> Node.js, Express,PHP<br>
-                        <span class="terminal-command">Databases:</span> MongoDB,MySQL<br>
-                        <span class="terminal-command">Tools:</span> Git, Webpack, Figma, VS Code<br><br>
-                        <span class="terminal-prompt">Prince@developer</span><span class="terminal-command">:~$</span> <span class="terminal-cursor">|</span>
+                <div class="terminal-container fade-in delay-1">
+                    <div class="terminal glass-card">
+                        <div class="terminal-header">
+                            <div class="terminal-btn red"></div>
+                            <div class="terminal-btn yellow"></div>
+                            <div class="terminal-btn green"></div>
+                            <div class="terminal-title">bash — 80×24</div>
+                        </div>
+                        <div class="terminal-content" id="terminalContent">
+                            <!-- Terminal content will be dynamically generated by JavaScript -->
+                        </div>
                     </div>
                 </div>
             </div>
@@ -1614,7 +1665,7 @@ What truly drives me is the challenge of solving real-world problems through cle
                     </div>
                     <div class="skill-item">
                         <div class="skill-info">
-                            <span class="skill-name">My SQL</span>
+                            <span class="skill-name">MySQL</span>
                             <span class="skill-percent">80%</span>
                         </div>
                         <div class="skill-bar">
@@ -1800,7 +1851,7 @@ What truly drives me is the challenge of solving real-world problems through cle
                     <div class="glass-card" style="padding: 2rem; text-align: center;">
                         <h3 style="font-size: 1.25rem; margin-bottom: 1.5rem; color: var(--text-white);">Quick Contact</h3>
                         <p style="margin-bottom: 1.5rem;">Prefer to chat directly? Click below to message me on WhatsApp.</p>
-                        <a href="https://wa.me/919876543210?text=Hi%20Prince,%20I%20saw%20your%20portfolio%20and%20wanted%20to%20connect" class="btn btn-primary" target="_blank" rel="noopener noreferrer">
+                        <a href="https://wa.me/8273847174?text=Hi%20Prince,%20I%20saw%20your%20portfolio%20and%20wanted%20to%20connect" class="btn btn-primary" target="_blank" rel="noopener noreferrer">
                             <i class="fab fa-whatsapp" style="margin-right: 0.5rem;"></i> Chat on WhatsApp
                         </a>
                     </div>
@@ -1989,83 +2040,102 @@ What truly drives me is the challenge of solving real-world problems through cle
         themeToggle.addEventListener('click', toggleTheme);
         footerThemeToggle.addEventListener('click', toggleTheme);
         
-        // Initialize animations when page loads
-        document.addEventListener('DOMContentLoaded', () => {
-            animateSkillBars();
-            
-            // Terminal typing animation
+        // Enhanced Terminal Animation
+        function initTerminal() {
+            const terminalContent = document.getElementById('terminalContent');
             const terminalLines = [
-                "Prince@developer:~$ npm init Prince-website",
-                "Creating a new Prince Developer website...",
-                "Installing dependencies...",
-                "Building components...",
-                "Optimizing performance...",
-                "Website ready! Visit https://Princedeveloper.com"
+                { prompt: "Prince@developer:~$", command: " whoami", output: "Prince Developer - Full Stack Developer" },
+                { prompt: "Prince@developer:~$", command: " cat skills.txt", output: "Frontend: React, Angular, HTML5, CSS3, JavaScript\nBackend: Node.js, Express, PHP\nDatabases: MongoDB, MySQL\nTools: Git, Webpack, VS Code" },
+                { prompt: "Prince@developer:~$", command: " find ./experience -type f", output: "./experience/years.txt: 5+" },
+                { prompt: "Prince@developer:~$", command: " npm init project", output: "Creating a new Prince Developer project...\nInitialized git repository\nInstalled dependencies\nProject ready!" },
+                { prompt: "Prince@developer:~$", command: " ", output: "" }
             ];
             
-            const terminalContent = document.querySelector('.terminal-content');
-            
-            // Clear existing content
+            // Clear terminal
             terminalContent.innerHTML = '';
-            
-            // Create new elements for typing animation
-            const prompt = document.createElement('span');
-            prompt.className = 'terminal-prompt';
-            prompt.textContent = 'Prince@developer';
-            
-            const command = document.createElement('span');
-            command.className = 'terminal-command';
-            command.textContent = ':~$ ';
-            
-            terminalContent.appendChild(prompt);
-            terminalContent.appendChild(command);
             
             let currentLine = 0;
             let currentChar = 0;
-            let isTyping = true;
+            let isTyping = false;
             
-            const typeNextChar = () => {
-                if (currentLine < terminalLines.length) {
-                    if (currentChar < terminalLines[currentLine].length) {
-                        command.textContent += terminalLines[currentLine].charAt(currentChar);
+            function typeNextLine() {
+                if (currentLine >= terminalLines.length) {
+                    // Add blinking cursor at the end
+                    const cursorLine = document.createElement('div');
+                    cursorLine.className = 'terminal-line';
+                    cursorLine.innerHTML = `
+                        <span class="terminal-prompt">${terminalLines[terminalLines.length-1].prompt}</span>
+                        <span class="terminal-command"></span>
+                        <span class="terminal-cursor"></span>
+                    `;
+                    terminalContent.appendChild(cursorLine);
+                    return;
+                }
+                
+                const line = terminalLines[currentLine];
+                const lineElement = document.createElement('div');
+                lineElement.className = 'terminal-line';
+                
+                // Add prompt
+                const promptElement = document.createElement('span');
+                promptElement.className = 'terminal-prompt';
+                promptElement.textContent = line.prompt;
+                lineElement.appendChild(promptElement);
+                
+                // Add command element
+                const commandElement = document.createElement('span');
+                commandElement.className = 'terminal-command';
+                lineElement.appendChild(commandElement);
+                
+                terminalContent.appendChild(lineElement);
+                
+                // Type command
+                isTyping = true;
+                const typeCommand = () => {
+                    if (currentChar < line.command.length) {
+                        commandElement.textContent += line.command.charAt(currentChar);
                         currentChar++;
-                        setTimeout(typeNextChar, 50);
+                        setTimeout(typeCommand, Math.random() * 50 + 30);
                     } else {
-                        // Line complete
-                        const br = document.createElement('br');
-                        terminalContent.appendChild(br);
+                        // Command typed, now show output
+                        currentChar = 0;
+                        isTyping = false;
                         
+                        if (line.output) {
+                            const outputElement = document.createElement('div');
+                            outputElement.className = 'terminal-output';
+                            outputElement.textContent = line.output;
+                            terminalContent.appendChild(outputElement);
+                        }
+                        
+                        // Move to next line
                         currentLine++;
                         currentChar = 0;
-                        
-                        if (currentLine < terminalLines.length) {
-                            // Create new prompt for next line
-                            const newPrompt = document.createElement('span');
-                            newPrompt.className = 'terminal-prompt';
-                            newPrompt.textContent = 'Prince@developer';
-                            
-                            const newCommand = document.createElement('span');
-                            newCommand.className = 'terminal-command';
-                            newCommand.textContent = ':~$ ';
-                            
-                            terminalContent.appendChild(newPrompt);
-                            terminalContent.appendChild(newCommand);
-                            
-                            command = newCommand;
-                            setTimeout(typeNextChar, 1000);
-                        } else {
-                            // All lines complete, add cursor
-                            const cursor = document.createElement('span');
-                            cursor.className = 'terminal-cursor';
-                            cursor.textContent = '|';
-                            terminalContent.appendChild(cursor);
-                        }
+                        setTimeout(typeNextLine, 1000);
                     }
-                }
-            };
+                };
+                
+                // Start typing after a short delay
+                setTimeout(typeCommand, 500);
+            }
             
-            // Start typing animation after a delay
-            setTimeout(typeNextChar, 1500);
+            // Start typing animation
+            typeNextLine();
+            
+            // Make terminal interactive
+            terminalContent.addEventListener('click', () => {
+                if (!isTyping) {
+                    currentLine = 0;
+                    currentChar = 0;
+                    initTerminal();
+                }
+            });
+        }
+        
+        // Initialize animations when page loads
+        document.addEventListener('DOMContentLoaded', () => {
+            animateSkillBars();
+            initTerminal();
         });
     </script>
     
@@ -2076,7 +2146,7 @@ What truly drives me is the challenge of solving real-world problems through cle
         "@type": "Person",
         "name": "Prince Developer",
         "jobTitle": "Full Stack Developer",
-        "url": "https://Princedeveloper.com",
+        "url": "https://prince-developer.com",
         "sameAs": [
             "https://github.com/Princedeveloper",
             "https://linkedin.com/in/Princedeveloper",
@@ -2085,12 +2155,12 @@ What truly drives me is the challenge of solving real-world problems through cle
         "description": "Professional Full Stack Developer specializing in web and mobile application development with 5+ years of experience.",
         "address": {
             "@type": "PostalAddress",
-            "addressLocality": "Bangalore",
-            "addressRegion": "Karnataka",
+            "addressLocality": "Mathura",
+            "addressRegion": "Uttar Pradesh",
             "addressCountry": "India"
         },
-        "email": "contact@Princedeveloper.com",
-        "telephone": "+919876543210"
+        "email": "princek.official25@gmail.com",
+        "telephone": "+918273847174"
     }
     </script>
 </body>
